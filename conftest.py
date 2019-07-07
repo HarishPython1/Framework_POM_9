@@ -12,8 +12,7 @@ def test_setup(request):
     from selenium import webdriver
     browser = "chrome"  # request.config.getoption("--browser")
     if browser == "chrome":
-        driver = webdriver.Chrome()
-        # executable_path="C:\\Users\\Hareesh\\PycharmProjects\\Framework_POM_9\\drivers\\chromedriver.exe")
+        driver = webdriver.Chrome(executable_path="C:\\Users\\BTM-Faculty\\PycharmProjects\\Framework_POM_9\\drivers\\chromedriver.exe")
     elif browser == "firefox":
         driver = webdriver.Firefox()
     driver.get(data.URL)

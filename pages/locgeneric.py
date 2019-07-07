@@ -1,7 +1,7 @@
 import moment
 import allure
 import os
-
+import xlrd
 from selenium.webdriver import ActionChains
 
 from testdata import data as data
@@ -55,3 +55,14 @@ class LocGeneric:
         des_element=self.locator(dest_loc_type,dest_loc_val)
         a.drag_and_drop(src_element, des_element).perform()
 
+    #Utility methods
+    def read_data(work_book_path, Sheet_name, col_name):
+        wb = xlrd.open_workbook(work_book_path)
+        ws = wb.sheet_by_name(Sheet_name)
+        row_count = ws.nrows
+        col_count = ws.ncols
+        for i in range(row_count):
+            for j in range(col_count):
+                if (ws.cell_value(i, j) == col_name):
+                    print(ws.cell_value(i + 1, j))
+            break

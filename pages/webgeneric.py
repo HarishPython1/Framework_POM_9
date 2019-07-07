@@ -7,7 +7,7 @@ import allure
 class WebGeneric(LocGeneric):
     def __init__(self, driver):
         LocGeneric.__init__(self, driver)
-        global lc
+        #global lc
         lc = LocGeneric(driver)
 
     def enter(self, locator_type, locator_val, input_val):
